@@ -6,7 +6,7 @@
     "rvrcl": {
       "type": "vector",
       "tiles": [
-        "https://hfu.github.io/rvrcl/{z}/{x}/{y}.mvt"
+        "https://hfu.github.io/rvrcl-vt/{z}/{x}/{y}.mvt"
       ],
       "minzoom": 0,
       "maxzoom": 14,
