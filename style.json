@@ -1,0 +1,73 @@
+{
+  "version": 8,
+  "name": "Global Map vector tiles",
+  "glyphs": "https://smellman.github.io/creating_tiles_with_global_map_support_files/2015/mapbox_vector_tile_demo/demosites/fonts/{fontstack}/{range}.pbf",
+  "sources": {
+    "rvrcl": {
+      "type": "vector",
+      "tiles": [
+        "https://hfu.github.io/rvrcl/{z}/{x}/{y}.mvt"
+      ],
+      "minzoom": 0,
+      "maxzoom": 14,
+      "attribution": "GSI vector tile engineering experiment (rvrcl)"
+    },
+    "land": {
+      "type": "vector",
+      "tiles": ["https://hfu.github.io/natural-earth-land-301/{z}/{x}/{y}.mvt"],
+      "minzoom": 0,
+      "maxzoom": 8,
+      "attribution": "Natural Earth (land)"
+    }
+  },
+  "layers": [
+    {
+      "id": "background",
+      "type": "background",
+      "paint": {
+        "background-color": "#5b92e5"
+      }
+    },
+    {
+      "id": "land",
+      "type": "fill",
+      "source": "land",
+      "source-layer": "land",
+      "paint": {
+        "fill-color": "#fff",
+        "fill-opacity": 1,
+        "fill-outline-color": "#fff"
+      }
+    },
+    {
+      "id": "rvrcl",
+      "type": "line",
+      "source": "rvrcl",
+      "source-layer": "rvrcl",
+      "minzoom": 0,
+      "maxzoom": 20,
+      "layout": {
+        "line-join": "round",
+        "line-cap": "round"
+      },
+      "paint": {
+        "line-color": {
+          "property": "type",
+          "type": "categorical",
+          "stops": [
+            ["細河川（通常部）", "#26bde2"],
+            ["河川中心線（通常部）", "#0a97d2"],
+            ["人工水路（地下）", "#c5192d"],
+            ["用水路", "#56c02b"],
+            ["人工水路（空間）", "#e5243b"],
+            ["細河川（枯れ川部）", "#dda63a"],
+            ["河川中心線（枯れ川部）", "#bf8b2e"],
+            ["不明", "#00689d"]
+          ]
+        },
+        "line-width": 0.5,
+        "line-opacity": 1
+      }
+    }
+  ]
+}
